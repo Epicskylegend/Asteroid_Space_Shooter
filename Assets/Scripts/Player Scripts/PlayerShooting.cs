@@ -7,17 +7,11 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    PlasmaGunBullet plasmaBullet = new PlasmaGunBullet();
 
     public List<Bullet> bulletPrefabs;
     int currWeapon = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+
     void Update()
     {
         Shoot();
@@ -27,14 +21,16 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        if(currWeapon == 0 && Input.GetMouseButtonDown(1))
+        if(currWeapon == 0 && Input.GetMouseButtonDown(0))
         {
             //Console.WriteLine(weapons[currWeapon]);
-            plasmaBullet.fireShot();
+            bulletPrefabs[currWeapon].fireShot();
+            Console.WriteLine(currWeapon);
         }
         else if(currWeapon == 1 && Input.GetMouseButtonDown(1))
         {
             Console.WriteLine("Yes");
+            Console.WriteLine(currWeapon);
         }
     }
 
