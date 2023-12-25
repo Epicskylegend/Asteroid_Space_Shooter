@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon1 : MonoBehaviour
+public abstract class Bullet : MonoBehaviour
 {
+
+    public float damage;
+    public float bulletSpeed;
+    public float fireRate;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +18,5 @@ public class Weapon1 : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void fireWeapon()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-
-        }
     }
 }

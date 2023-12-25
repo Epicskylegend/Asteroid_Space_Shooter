@@ -10,11 +10,6 @@ public class Movement : MonoBehaviour
     float moveUpSpeed = 4.5f;
     float moveDownSpeed = 5f;
 
-    float minX;
-    float maxX;
-    float minY;
-    float maxY;
-
     void Start()
     {
         
@@ -24,9 +19,6 @@ public class Movement : MonoBehaviour
     void Update() {
         PlayerMovement();     
     }
-
-
-
 
     
     void PlayerMovement()
