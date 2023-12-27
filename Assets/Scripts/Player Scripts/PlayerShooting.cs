@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
-public class PlayerShooting : MonoBehaviour
+public class PlayerShooting : PlasmaGunBullet
 {
+
+    //PlasmaGunBullet plasmaBullet = new PlasmaGunBullet();
 
     public List<Bullet> bulletPrefabs;
     int currWeapon = 0;
@@ -21,10 +22,11 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        if(currWeapon == 0 && Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
             //Console.WriteLine(weapons[currWeapon]);
-            bulletPrefabs[currWeapon].fireShot();
+            //bulletPrefabs[currWeapon].fireShot();
+            PlasmaGunBullet.fireShot(firePoint, bulletPrefabs[currWeapon].bulletPrefab, bulletPrefabs[currWeapon].bulletSpeed);
             Console.WriteLine(currWeapon);
         }
         else if(currWeapon == 1 && Input.GetMouseButtonDown(1))

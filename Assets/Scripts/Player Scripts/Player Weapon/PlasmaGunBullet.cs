@@ -10,6 +10,7 @@ public class PlasmaGunBullet : Bullet
     public GameObject bulletPrefab;
     public Transform firePoint;
     float timer;
+    float lastFireTime;
 
 
 
@@ -20,15 +21,17 @@ public class PlasmaGunBullet : Bullet
         rateOfFire();
         bulletTravelSpeed();
         damagePerShot();
-        timeInBetweenShots();
-        fireShot();
-        
+        //timeInBetweenShots();
+        //fireShot();
+        bulletDuration();
+
+
     }
 
-
+    // Weapon atributes
     void rateOfFire()
     {
-        fireRate = 0.2f;
+        fireRate = 5f;
     }
 
     void bulletTravelSpeed()
@@ -40,10 +43,13 @@ public class PlasmaGunBullet : Bullet
     {
         damage = 5;
     }   
-
+    void bulletDuration()
+    {
+        duration = 1f;
+    }
     public void timeInBetweenShots()
     {
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(0))
         {
 
             timer += Time.deltaTime;
@@ -65,21 +71,22 @@ public class PlasmaGunBullet : Bullet
 
     }
 
-     void fireShot()
-    {
+     public static void fireShot(Transform firePoint, GameObject bulletPrefab, float bulletSpeed)
+     {
         if (Input.GetMouseButtonDown(0))
-        {
-            GameObject plasmaBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Rigidbody2D bulletRigidbody = plasmaBullet.GetComponent<Rigidbody2D>();
+             //&& Time.time >= lastFireTime + (1 / fireRate
+        {   
+            
+                GameObject plasmaBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                Rigidbody2D bulletRigidbody = plasmaBullet.GetComponent<Rigidbody2D>();
 
-            bulletRigidbody.velocity = plasmaBullet.transform.right * bulletSpeed;
+                bulletRigidbody.velocity = plasmaBullet.transform.right * bulletSpeed;
 
-            //yield return new WaitForSeconds(1f);
-            //Destroy(plasmaBullet);
+                //lastFireTime = Time.time;
+
+                
         }
-    }
+     } 
     
-
-
-   
+        
 }
