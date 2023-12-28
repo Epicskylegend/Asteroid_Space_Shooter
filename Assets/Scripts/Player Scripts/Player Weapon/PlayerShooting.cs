@@ -28,6 +28,10 @@ public class PlayerShooting : PlasmaGunBullet
             PlasmaGunBullet.fireShot(firePoint, bulletPrefabs[currWeapon].bulletPrefab, bulletPrefabs[currWeapon].bulletSpeed);
             lastFireTime = 0f;           
         }
+        else if(!Input.GetMouseButton(0))
+        {
+            lastFireTime = 0f;
+        }
        
                 
       
