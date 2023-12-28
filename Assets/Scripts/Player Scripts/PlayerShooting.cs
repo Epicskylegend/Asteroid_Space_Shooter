@@ -11,7 +11,7 @@ public class PlayerShooting : PlasmaGunBullet
 
     public List<Bullet> bulletPrefabs;
     int currWeapon = 0;
-    float fireRate = 1 / 5f;
+    float fireRate = 1 / 10f;
     float lastFireTime = 0f;
 
 
@@ -24,24 +24,35 @@ public class PlayerShooting : PlasmaGunBullet
 
     void Shoot()
     {
-        if (Input.GetMouseButtonDown(0))
-        { 
-            lastFireTime += Time.time;
-            Debug.Log("yes " + lastFireTime + " yes");
+      
+        if (Input.GetMouseButton(0))
+        {
+            lastFireTime += Time.deltaTime;
+            Debug.Log("Last fire time: " + lastFireTime);
             if (lastFireTime >= fireRate)
-                Debug.Log("Fire rate is: " + fireRate);
+
             {
-                PlasmaGunBullet.fireShot(firePoint, bulletPrefabs[currWeapon].bulletPrefab, bulletPrefabs[currWeapon].bulletSpeed, 5);
-                lastFireTime = 0;
+                PlasmaGunBullet.fireShot(firePoint, bulletPrefabs[currWeapon].bulletPrefab, bulletPrefabs[currWeapon].bulletSpeed);
+                //Debug.Log("Last fire time before reset: " + lastFireTime);
+                //lastFireTime -= Time.time;
+                //Debug.Log("Last fire time: " + lastFireTime);
 
                 Console.WriteLine(currWeapon);
+                lastFireTime = 0;
             }
         }
-        else if (currWeapon == 1 && Input.GetMouseButtonDown(0))
-        {
+            
+        
+      
+            else if (currWeapon == 1 && Input.GetMouseButtonDown(0))
+            {
             Console.WriteLine("Yes");
             Console.WriteLine(currWeapon);
-        }
+            }
+            else
+            {
+                lastFireTime = 0;
+            }
     }
 
     void cycleWeapon()

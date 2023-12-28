@@ -42,7 +42,7 @@ public class PlasmaGunBullet : Bullet
     }
 
 
-    public static void fireShot(Transform firePoint, GameObject bulletPrefab, float bulletSpeed, float fireRate)
+    public static void fireShot(Transform firePoint, GameObject bulletPrefab, float bulletSpeed)
     { 
                // Debug.Log("Fire rate is " + fireRate);
           
