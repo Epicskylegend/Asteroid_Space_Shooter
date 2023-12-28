@@ -10,7 +10,8 @@ public class PlasmaGunBullet : Bullet
     public GameObject bulletPrefab;
     public Transform firePoint;
     float timer;
-    float lastFireTime;
+    private static float lastFireTime = 0f;
+
 
 
 
@@ -21,17 +22,14 @@ public class PlasmaGunBullet : Bullet
         rateOfFire();
         bulletTravelSpeed();
         damagePerShot();
-        //timeInBetweenShots();
-        //fireShot();
         bulletDuration();
-
 
     }
 
     // Weapon atributes
-    void rateOfFire()
+    public void rateOfFire()
     {
-        fireRate = 5f;
+        fireRate = 1 / 5;
     }
 
     void bulletTravelSpeed()
@@ -47,47 +45,31 @@ public class PlasmaGunBullet : Bullet
     {
         duration = 5f;
     }
-    public void timeInBetweenShots()
+
+
+    public static void fireShot(Transform firePoint, GameObject bulletPrefab, float bulletSpeed, float fireRate)
     {
-        if(Input.GetMouseButtonDown(0))
-        {
 
-            timer += Time.deltaTime;
-            Debug.Log("Timer: " + Time.deltaTime);
-
-            if (timer >= fireRate)
-            {
-
-                //StartCoroutine(fireBullet());
-                timer = 0f;
-            }
-           
-        }
-        else
-        {
-            timer = 0f;
-        }
-      
-
-    }
-
-     public static void fireShot(Transform firePoint, GameObject bulletPrefab, float bulletSpeed)
-     {
         if (Input.GetMouseButtonDown(0))
-             //&& Time.time >= lastFireTime + (1 / fireRate
-        {   
-            
+        {
+            lastFireTime += Time.deltaTime;
+            Debug.Log("" + lastFireTime + "");
+            if (lastFireTime >= fireRate)
+            {
                 GameObject plasmaBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody2D bulletRigidbody = plasmaBullet.GetComponent<Rigidbody2D>();
-
                 bulletRigidbody.velocity = plasmaBullet.transform.right * bulletSpeed;
 
+                lastFireTime = 0f;
+                destroyBullet(plasmaBullet, 2);
+            }
 
-                //lastFireTime = Time.time;
-
-                
         }
-     }
+    }
+
+     
+
+
     public static void destroyBullet(GameObject plasmaBullet, float duration)
     {
         Destroy(plasmaBullet, duration);

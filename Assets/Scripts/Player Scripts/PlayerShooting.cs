@@ -11,6 +11,7 @@ public class PlayerShooting : PlasmaGunBullet
 
     public List<Bullet> bulletPrefabs;
     int currWeapon = 0;
+    float lastFireTim;
 
 
     void Update()
@@ -24,9 +25,7 @@ public class PlayerShooting : PlasmaGunBullet
     {
         if(Input.GetMouseButtonDown(0))
         {
-            //Console.WriteLine(weapons[currWeapon]);
-            //bulletPrefabs[currWeapon].fireShot();
-            PlasmaGunBullet.fireShot(firePoint, bulletPrefabs[currWeapon].bulletPrefab, bulletPrefabs[currWeapon].bulletSpeed);
+            PlasmaGunBullet.fireShot(firePoint, bulletPrefabs[currWeapon].bulletPrefab, bulletPrefabs[currWeapon].bulletSpeed, 5);
             
             Console.WriteLine(currWeapon);
         }
