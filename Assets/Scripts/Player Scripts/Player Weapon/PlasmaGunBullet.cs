@@ -29,7 +29,7 @@ public class PlasmaGunBullet : Bullet
    
     void bulletTravelSpeed()
     {
-        bulletSpeed = 15f;
+        bulletSpeed = 20f;
     }
 
     void damagePerShot()
