@@ -9,11 +9,7 @@ public class PlasmaGunBullet : Bullet
 
     public GameObject bulletPrefab;
     public Transform firePoint;
-    float timer;
    
-
-
-
 
     // Update is called once per frame
     void Update()
@@ -44,20 +40,14 @@ public class PlasmaGunBullet : Bullet
 
     public static void fireShot(Transform firePoint, GameObject bulletPrefab, float bulletSpeed)
     { 
-               // Debug.Log("Fire rate is " + fireRate);
-          
-                GameObject plasmaBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-                Rigidbody2D bulletRigidbody = plasmaBullet.GetComponent<Rigidbody2D>();
-                bulletRigidbody.velocity = plasmaBullet.transform.right * bulletSpeed;
-
-               //lastFireTime = 0;
-                destroyBullet(plasmaBullet, 2);
+              
+        GameObject plasmaBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D bulletRigidbody = plasmaBullet.GetComponent<Rigidbody2D>();
+        bulletRigidbody.velocity = plasmaBullet.transform.right * bulletSpeed;
+            
+        destroyBullet(plasmaBullet, 2);
     }
 
-        
-    
-
-     
 
 
     public static void destroyBullet(GameObject plasmaBullet, float duration)
