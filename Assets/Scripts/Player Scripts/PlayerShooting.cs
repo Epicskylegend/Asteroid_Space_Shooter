@@ -26,11 +26,7 @@ public class PlayerShooting : PlasmaGunBullet
         if (Input.GetMouseButton(0) && lastFireTime >= fireRate)
         {
             PlasmaGunBullet.fireShot(firePoint, bulletPrefabs[currWeapon].bulletPrefab, bulletPrefabs[currWeapon].bulletSpeed);
-            lastFireTime = 0f;
-            Debug.Log("Fired at: " + Time.time);        
-            Console.WriteLine(currWeapon);
-           
-            
+            lastFireTime = 0f;           
         }
        
                 
@@ -44,7 +40,6 @@ public class PlayerShooting : PlasmaGunBullet
         }
      
     }
-
 
 
     void cycleWeapon()
