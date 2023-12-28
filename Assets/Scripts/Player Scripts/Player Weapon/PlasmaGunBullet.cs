@@ -45,7 +45,7 @@ public class PlasmaGunBullet : Bullet
     }   
     void bulletDuration()
     {
-        duration = 1f;
+        duration = 5f;
     }
     public void timeInBetweenShots()
     {
@@ -82,11 +82,16 @@ public class PlasmaGunBullet : Bullet
 
                 bulletRigidbody.velocity = plasmaBullet.transform.right * bulletSpeed;
 
+
                 //lastFireTime = Time.time;
 
                 
         }
-     } 
+     }
+    public static void destroyBullet(GameObject plasmaBullet, float duration)
+    {
+        Destroy(plasmaBullet, duration);
+    }
     
         
 }

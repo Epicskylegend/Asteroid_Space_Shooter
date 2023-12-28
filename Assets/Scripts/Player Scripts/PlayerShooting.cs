@@ -27,9 +27,10 @@ public class PlayerShooting : PlasmaGunBullet
             //Console.WriteLine(weapons[currWeapon]);
             //bulletPrefabs[currWeapon].fireShot();
             PlasmaGunBullet.fireShot(firePoint, bulletPrefabs[currWeapon].bulletPrefab, bulletPrefabs[currWeapon].bulletSpeed);
+            
             Console.WriteLine(currWeapon);
         }
-        else if(currWeapon == 1 && Input.GetMouseButtonDown(1))
+        else if(currWeapon == 1 && Input.GetMouseButtonDown(0))
         {
             Console.WriteLine("Yes");
             Console.WriteLine(currWeapon);

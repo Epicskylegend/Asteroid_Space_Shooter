@@ -24,24 +24,24 @@ public class Movement : MonoBehaviour
     void PlayerMovement()
     {
         
-        if (Input.GetKey(KeyCode.W) && transform.position.y < 8.961)
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) && transform.position.y < 8.961)
         {
             transform.Translate(Vector2.up * Time.deltaTime * Input.GetAxis("Vertical") * moveUpSpeed);
 
         }
 
-        if (Input.GetKey(KeyCode.A) && transform.position.x > -18.78)
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -18.78)
         {
             transform.Translate(Vector2.right * Time.deltaTime * Input.GetAxis("Horizontal") * moveLeftSpeed);
 
         }
 
-        if (Input.GetKey(KeyCode.S) && transform.position.y > -8.961)
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) && transform.position.y > -8.961)
         {
             transform.Translate(Vector2.up * Time.deltaTime * Input.GetAxis("Vertical") * moveDownSpeed);
 
         }
-        if (Input.GetKey(KeyCode.D) && transform.position.x < 18.78)
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) && transform.position.x < 18.78)
         {
             transform.Translate(Vector2.right * Time.deltaTime * Input.GetAxis("Horizontal") * moveRightSpeed);
 
