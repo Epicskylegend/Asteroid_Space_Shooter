@@ -22,6 +22,6 @@ public class AsteroidSpawner : Asteroid1
 
     void launchAsteroid()
     {
-        Asteroid1.spawnAsteroid(spawnPoint, asteroidPrefabs[0].asteroidPrefab, asteroidPrefabs[0].speed);
+        Asteroid1.spawnAsteroid(spawnPoint, asteroidPrefabs[0].asteroidPrefab, asteroidPrefabs[0].speed, asteroidPrefabs[0].rotationSpeed);
     }
 }

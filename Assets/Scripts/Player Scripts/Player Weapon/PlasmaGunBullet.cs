@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlasmaGunBullet : Bullet
 {
-
+    [HideInInspector]
     public GameObject bulletPrefab;
     public Transform firePoint;
    
@@ -30,7 +30,7 @@ public class PlasmaGunBullet : Bullet
 
     void damagePerShot()
     {
-        damage = 5;
+        damage = 10;
     }   
     void bulletDuration()
     {
@@ -53,7 +53,17 @@ public class PlasmaGunBullet : Bullet
     public static void destroyBullet(GameObject plasmaBullet, float duration)
     {
         Destroy(plasmaBullet, duration);
+       
+       
     }
-    
-        
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
 }
