@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockFrames : MonoBehaviour   
+public abstract class Enemy : MonoBehaviour
 {
 
-    public int frameRate = 120;
+
+    public float damage;
+    public float speed;
+    public float health;
+    public float rotationSpeed;
+    public GameObject asteroidPrefab;
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = frameRate;
+        
     }
 
     // Update is called once per frame
