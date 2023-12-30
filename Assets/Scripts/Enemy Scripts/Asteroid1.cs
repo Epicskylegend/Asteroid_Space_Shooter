@@ -83,7 +83,6 @@ public class Asteroid1 : Enemy
         asteroidRigidbody.angularVelocity = rotationSpeed;
 
         //Ignore collisions with player boundaries
-        Collider2D asteroid1Collider = asteroid1.GetComponent<Collider2D>();
         Collider2D rightBoundary = GameObject.FindGameObjectWithTag("Right Boundary").GetComponent<Collider2D>();
         Collider2D leftBoundary = GameObject.FindGameObjectWithTag("Left Boundary").GetComponent<Collider2D>();
         Collider2D topBoundary = GameObject.FindGameObjectWithTag("Top Boundary").GetComponent<Collider2D>();

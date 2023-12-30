@@ -38,12 +38,17 @@ public class PlasmaGunBullet : Bullet
 
 
     public static void fireShot(Transform firePoint, GameObject bulletPrefab, float bulletSpeed)
-    { 
+    {
+       
+        Collider2D rightBoundary = GameObject.FindGameObjectWithTag("Right Boundary").GetComponent<Collider2D>();
               
         GameObject plasmaBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D bulletRigidbody = plasmaBullet.GetComponent<Rigidbody2D>();
+        Collider2D bullet = plasmaBullet.GetComponent<Collider2D>();
         bulletRigidbody.velocity = plasmaBullet.transform.right * bulletSpeed;
-            
+
+
+        Physics2D.IgnoreCollision(bullet, rightBoundary);
         destroyBullet(plasmaBullet, 2);
     }
 
