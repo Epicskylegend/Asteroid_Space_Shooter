@@ -76,22 +76,34 @@ public class Asteroid1 : Enemy
 
     public static void spawnAsteroid(Transform spawnPoint, GameObject asteroidPrefab, float speed, float rotationSpeed)
     {
-      
-
         GameObject asteroid1 = Instantiate(asteroidPrefab, spawnPoint.position, Quaternion.identity);
+        Collider2D asteroidCollider = asteroid1.GetComponent<Collider2D>();
         Rigidbody2D asteroidRigidbody = asteroid1.GetComponent<Rigidbody2D>();
         asteroidRigidbody.velocity = asteroid1.transform.right * speed;
         asteroidRigidbody.angularVelocity = rotationSpeed;
-      
+
+        //Ignore collisions with player boundaries
+        Collider2D asteroid1Collider = asteroid1.GetComponent<Collider2D>();
+        Collider2D rightBoundary = GameObject.FindGameObjectWithTag("Right Boundary").GetComponent<Collider2D>();
+        Collider2D leftBoundary = GameObject.FindGameObjectWithTag("Left Boundary").GetComponent<Collider2D>();
+        Collider2D topBoundary = GameObject.FindGameObjectWithTag("Top Boundary").GetComponent<Collider2D>();
+        Collider2D bottomBoundary = GameObject.FindGameObjectWithTag("Bottom Boundary").GetComponent<Collider2D>();
+        Physics2D.IgnoreCollision(asteroidCollider, rightBoundary);
+        Physics2D.IgnoreCollision(asteroidCollider, topBoundary);
+        Physics2D.IgnoreCollision(asteroidCollider, leftBoundary);
+        Physics2D.IgnoreCollision(asteroidCollider, bottomBoundary);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.CompareTag("PlasmaBullet"))
         {
             PlasmaGunBullet plasmaBullet = collision.gameObject.GetComponent<PlasmaGunBullet>();
             health -= plasmaBullet.damage;
         }
+      
         if(collision.gameObject.CompareTag("Boundary"))
         {
             Destroy(this.gameObject);

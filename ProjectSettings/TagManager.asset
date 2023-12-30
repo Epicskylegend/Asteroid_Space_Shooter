@@ -7,11 +7,15 @@ TagManager:
   - PlasmaBullet
   - Enemy
   - Boundary
+  - Top Boundary
+  - Left Boundary
+  - Bottom Boundary
+  - Right Boundary
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Right Boundary
   - Water
   - UI
   - 

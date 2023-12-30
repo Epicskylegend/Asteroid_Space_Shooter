@@ -24,28 +24,42 @@ public class Movement : MonoBehaviour
     void PlayerMovement()
     {
         
-        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && transform.position.y < 8.961)
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && !onBoundary("Top Boundary"))
         {
             transform.Translate(Vector2.up * Time.deltaTime * Input.GetAxis("Vertical") * moveUpSpeed);
 
         }
 
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && transform.position.x > -18.78)
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !onBoundary("Left Boundary"))
         {
             transform.Translate(Vector2.right * Time.deltaTime * Input.GetAxis("Horizontal") * moveLeftSpeed);
 
         }
 
-        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && transform.position.y > -8.961)
+        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !onBoundary("Bottom Boundary"))
         {
             transform.Translate(Vector2.up * Time.deltaTime * Input.GetAxis("Vertical") * moveDownSpeed);
 
         }
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && transform.position.x < 18.78)
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !onBoundary("Right Boundary"))
         {
             transform.Translate(Vector2.right * Time.deltaTime * Input.GetAxis("Horizontal") * moveRightSpeed);
 
         }
 
+    }
+
+    bool onBoundary(string tag)
+    {
+        Collider2D collider = GetComponent<Collider2D>();
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(collider.bounds.center, collider.bounds.size, 0f);
+        foreach(Collider2D col in colliders)
+        {
+            if(col.gameObject.CompareTag(tag))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
