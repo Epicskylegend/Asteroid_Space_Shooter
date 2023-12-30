@@ -20,15 +20,15 @@ public class Asteroid1 : Enemy
         AsteroidSpeed();
         AsteroidHealth();
         AsteroidRotationSpeed();
-        //AsteroidTrackingSpeed();
-        //AsteroidTrackingTime();
+        AsteroidTrackingSpeed();
+        AsteroidTrackingTime();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        //playerTracking();
+        playerTracking();
 
     }
 
@@ -73,10 +73,16 @@ public class Asteroid1 : Enemy
 
     public static void spawnAsteroid(Transform spawnPoint, GameObject asteroidPrefab, float speed, float rotationSpeed)
     {
+      
+
         GameObject asteroid1 = Instantiate(asteroidPrefab, spawnPoint.position, Quaternion.identity);
         Rigidbody2D asteroidRigidbody = asteroid1.GetComponent<Rigidbody2D>();
         asteroidRigidbody.velocity = asteroid1.transform.right * speed;
         asteroidRigidbody.angularVelocity = rotationSpeed;
+
+
+      
+        
       
     }
 
@@ -100,8 +106,13 @@ public class Asteroid1 : Enemy
     
     void playerTracking ()
     {
-        GameObject target = GameObject.FindGameObjectWithTag("Player");
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, trackingSpeed * Time.deltaTime);
+        trackingSpeed += Time.deltaTime;
+        if (trackingSpeed <= 5)
+        {
+            GameObject target = GameObject.FindGameObjectWithTag("Player");
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, trackingSpeed * Time.deltaTime);
+        }
+
     }
    
        
