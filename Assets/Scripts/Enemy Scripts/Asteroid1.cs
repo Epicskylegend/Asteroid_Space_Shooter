@@ -8,6 +8,7 @@ public class Asteroid1 : Enemy
 {
   
     public Transform spawnPoint;
+    public Rigidbody2D rb;
     
    
 
@@ -29,7 +30,7 @@ public class Asteroid1 : Enemy
     {
         
         playerTracking();
-
+        isAlive();
     }
 
     void AsteroidDamage()
@@ -38,23 +39,17 @@ public class Asteroid1 : Enemy
     }
     void AsteroidSpeed()
     {
-        speed = -5;
+        speed = 5;
     }
     void AsteroidTrackingSpeed()
     {
-        if(Time.time <= 2)
-        {
-            trackingSpeed = 10;
-        }
-        else
-        {
-            trackingSpeed = 0;
-        }
        
+        trackingSpeed = 10f;
     }
+      
     void AsteroidTrackingTime()
     {
-        trackingTime = 2;
+        trackingTime = 0;
     }
 
     void AsteroidHealth()
@@ -66,6 +61,14 @@ public class Asteroid1 : Enemy
         rotationSpeed = UnityEngine.Random.Range(45, 100);
     }
 
+
+    void isAlive()
+    {
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
@@ -79,10 +82,6 @@ public class Asteroid1 : Enemy
         Rigidbody2D asteroidRigidbody = asteroid1.GetComponent<Rigidbody2D>();
         asteroidRigidbody.velocity = asteroid1.transform.right * speed;
         asteroidRigidbody.angularVelocity = rotationSpeed;
-
-
-      
-        
       
     }
 
@@ -97,20 +96,22 @@ public class Asteroid1 : Enemy
         {
             Destroy(this.gameObject);
         }
-        if (health <= 0)
-        {
-           Destroy(this.gameObject);
-        }
+       
     }
   
     
     void playerTracking ()
     {
-        trackingSpeed += Time.deltaTime;
-        if (trackingSpeed <= 5)
+        trackingTime += Time.deltaTime;
+        if (trackingTime <= 3)
         {
             GameObject target = GameObject.FindGameObjectWithTag("Player");
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, trackingSpeed * Time.deltaTime);
+            
+            Vector2 distance = target.transform.position - transform.position;
+           
+            Vector2 direction = distance.normalized;
+
+            rb.velocity = trackingSpeed * direction;
         }
 
     }

@@ -107,6 +107,7 @@ MonoBehaviour:
   rotationSpeed: 90
   asteroidPrefab: {fileID: 6063358608712145365}
   spawnPoint: {fileID: 0}
+  rb: {fileID: 8792756146884855117}
 --- !u!61 &-1951987958009598166
 BoxCollider2D:
   m_ObjectHideFlags: 0
