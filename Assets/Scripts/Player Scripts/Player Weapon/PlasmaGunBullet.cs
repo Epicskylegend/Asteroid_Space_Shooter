@@ -7,7 +7,6 @@ using UnityEngine;
 public class PlasmaGunBullet : Bullet
 {
     [HideInInspector]
-    public GameObject bulletPrefab;
     public Transform firePoint;
    
 
@@ -25,7 +24,7 @@ public class PlasmaGunBullet : Bullet
    
     void bulletTravelSpeed()
     {
-        bulletSpeed = 20f;
+        bulletSpeed = 30f;
     }
 
     void damagePerShot()

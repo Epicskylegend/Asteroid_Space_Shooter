@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1951987958009598166}
   m_Layer: 0
   m_Name: Asteroid
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,10 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be90068716221c4eb1c7552b387c29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  speed: 0
-  health: 0
-  asteroidPrefab: {fileID: 0}
+  damage: 5
+  speed: -5
+  trackingSpeed: 0
+  trackingTime: 0
+  health: 10
+  rotationSpeed: 90
+  asteroidPrefab: {fileID: 6063358608712145365}
+  spawnPoint: {fileID: 0}
 --- !u!50 &-3765480220307126818
 Rigidbody2D:
   serializedVersion: 4
@@ -117,8 +121,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

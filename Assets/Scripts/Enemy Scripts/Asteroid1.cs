@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Asteroid1 : Enemy
 {
   
-    public GameObject asteroidPrefab;
     public Transform spawnPoint;
+    
    
 
 
@@ -19,13 +20,16 @@ public class Asteroid1 : Enemy
         AsteroidSpeed();
         AsteroidHealth();
         AsteroidRotationSpeed();
+        //AsteroidTrackingSpeed();
+        //AsteroidTrackingTime();
     }
 
     // Update is called once per frame
     void Update()
     {
-        destroyAsteroidOffMap();
         
+        //playerTracking();
+
     }
 
     void AsteroidDamage()
@@ -35,6 +39,22 @@ public class Asteroid1 : Enemy
     void AsteroidSpeed()
     {
         speed = -5;
+    }
+    void AsteroidTrackingSpeed()
+    {
+        if(Time.time <= 2)
+        {
+            trackingSpeed = 10;
+        }
+        else
+        {
+            trackingSpeed = 0;
+        }
+       
+    }
+    void AsteroidTrackingTime()
+    {
+        trackingTime = 2;
     }
 
     void AsteroidHealth()
@@ -66,25 +86,22 @@ public class Asteroid1 : Enemy
         {
             PlasmaGunBullet plasmaBullet = collision.gameObject.GetComponent<PlasmaGunBullet>();
             health -= plasmaBullet.damage;
-            
-            Debug.Log("Asteroid Health: " + health);
+        }
+        if(collision.gameObject.CompareTag("Boundary"))
+        {
+            Destroy(this.gameObject);
         }
         if (health <= 0)
         {
            Destroy(this.gameObject);
         }
     }
-    void destroyAsteroidOffMap()
+  
+    
+    void playerTracking ()
     {
-        if(transform.position.y >= -10.961 || transform.position.y <= 10.961 || transform.position.x >= 20.78 || transform.position.x <= -20.78)
-        {
-            //Destroy(gameObject);
-        }
-
-
-                
-
-        
+        GameObject target = GameObject.FindGameObjectWithTag("Player");
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, trackingSpeed * Time.deltaTime);
     }
    
        
