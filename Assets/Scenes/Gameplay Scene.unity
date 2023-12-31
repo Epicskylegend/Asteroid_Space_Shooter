@@ -680,8 +680,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   asteroidPrefabs:
   - {fileID: 6063358608712145366, guid: 051b4c0ab30067b4fbcceb0b5a01121d, type: 3}
-  minY: -15
-  maxY: 15
+  minY: -14
+  maxY: 14
 --- !u!1 &1220366555
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,7 +802,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.06236744, y: -0.020788431}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -813,7 +813,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 8}
+  m_Size: {x: 4.875265, y: 7.459477}
   m_EdgeRadius: 0
 --- !u!1 &1416820654
 GameObject:
