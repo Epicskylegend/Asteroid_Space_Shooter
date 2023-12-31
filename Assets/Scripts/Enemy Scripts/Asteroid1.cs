@@ -27,8 +27,7 @@ public class Asteroid1 : Enemy
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {    
         playerTracking();
         isAlive();
     }
@@ -54,11 +53,11 @@ public class Asteroid1 : Enemy
 
     void AsteroidHealth()
     {
-        health = 10;
+        health = 50;
     }
     void AsteroidRotationSpeed()
     {
-        rotationSpeed = UnityEngine.Random.Range(45, 100);
+        rotationSpeed = UnityEngine.Random.Range(45, 1000);
     }
 
 
@@ -74,13 +73,21 @@ public class Asteroid1 : Enemy
         Destroy(gameObject);
     }
 
-    public static void spawnAsteroid(Transform spawnPoint, GameObject asteroidPrefab, float speed, float rotationSpeed)
+    public static void spawnAsteroid(Vector2 spawnPosition,  GameObject asteroidPrefab, float speed, float rotationSpeed)
     {
-        GameObject asteroid1 = Instantiate(asteroidPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject asteroid1 = Instantiate(asteroidPrefab, spawnPosition, Quaternion.identity);
         Collider2D asteroidCollider = asteroid1.GetComponent<Collider2D>();
         Rigidbody2D asteroidRigidbody = asteroid1.GetComponent<Rigidbody2D>();
         asteroidRigidbody.velocity = asteroid1.transform.right * speed;
         asteroidRigidbody.angularVelocity = rotationSpeed;
+
+        
+        Collider2D rightBoundaryCollider = GameObject.FindGameObjectWithTag("Right Boundary").GetComponent<Collider2D>();
+
+        if (rightBoundaryCollider != null)
+        {
+            Physics2D.IgnoreCollision(asteroidCollider, rightBoundaryCollider);
+        }
 
         //Ignore collisions with player boundaries
         Collider2D rightBoundary = GameObject.FindGameObjectWithTag("Right Boundary").GetComponent<Collider2D>();
@@ -125,8 +132,6 @@ public class Asteroid1 : Enemy
             rb.velocity = trackingSpeed * direction;
         }
 
-    }
-   
-       
+    }      
     
 }

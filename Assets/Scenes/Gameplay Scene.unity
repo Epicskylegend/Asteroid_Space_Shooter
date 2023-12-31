@@ -203,7 +203,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -16.975687, y: -1.5021629}
+  m_Offset: {x: -16.975687, y: -1.4138451}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -214,7 +214,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.1925707, y: 19.7202}
+  m_Size: {x: 3.1925697, y: 21.558228}
   m_EdgeRadius: 0
 --- !u!1 &356742410
 GameObject:
@@ -354,7 +354,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.34082794, y: -0.49645138}
+  m_Offset: {x: -3.840065, y: -0.49645138}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -365,7 +365,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 49.942543, y: 1.4992104}
+  m_Size: {x: 42.94407, y: 1.4992104}
   m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
@@ -680,6 +680,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   asteroidPrefabs:
   - {fileID: 6063358608712145366, guid: 051b4c0ab30067b4fbcceb0b5a01121d, type: 3}
+  minY: -15
+  maxY: 15
 --- !u!1 &1220366555
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +696,7 @@ GameObject:
   - component: {fileID: 1220366558}
   m_Layer: 0
   m_Name: Spaceship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -759,7 +761,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220366555}
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.86, z: 0}
   m_LocalScale: {x: 0.40000004, y: 0.40000004, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -823,12 +825,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1416820656}
   - component: {fileID: 1416820655}
-  - component: {fileID: 1416820657}
-  - component: {fileID: 1416820658}
   - component: {fileID: 1416820659}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -853,7 +853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416820654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.51, y: -0.89, z: -0.17304994}
+  m_LocalPosition: {x: -17.51, y: -0.957, z: -0.17304994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -862,43 +862,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1416820657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416820654}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8974b0dabbf553b4f9e9288027e5089e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  bulletSpeed: 0
-  duration: 0
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 1416820656}
-  bulletPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &1416820658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416820654}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6c6201b215d12c40a7a9b31882ab796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  bulletSpeed: 0
-  duration: 0
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
 --- !u!61 &1416820659
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1028,7 +991,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.34082794, y: 0.44539452}
+  m_Offset: {x: -3.840065, y: 0.44539452}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1039,7 +1002,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 49.942543, y: 1.5141354}
+  m_Size: {x: 42.94407, y: 1.5141354}
   m_EdgeRadius: 0
 --- !u!1 &2075341233
 GameObject:
@@ -1066,7 +1029,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075341233}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5300007, y: 0.029999971, z: 0}
+  m_LocalPosition: {x: 1.5300007, y: 0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

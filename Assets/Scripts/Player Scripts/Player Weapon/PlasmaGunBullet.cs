@@ -29,7 +29,7 @@ public class PlasmaGunBullet : Bullet
 
     void damagePerShot()
     {
-        damage = 5;
+        damage = 10;
     }   
     void bulletDuration()
     {
