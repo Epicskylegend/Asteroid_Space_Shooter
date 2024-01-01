@@ -17,32 +17,32 @@ public class PlayerShooting : PlasmaGunBullet
         lastFireTime += Time.deltaTime;
         Shoot();
         cycleWeapon();
-        
+
     }
 
     void Shoot()
     {
-      
+
         if (Input.GetMouseButton(0) && lastFireTime >= fireRate)
         {
             PlasmaGunBullet.fireShot(firePoint, bulletPrefabs[currWeapon].bulletPrefab, bulletPrefabs[currWeapon].bulletSpeed);
-            lastFireTime = 0f;           
+            lastFireTime = 0f;
         }
-        else if(!Input.GetMouseButton(0))
+        else if (!Input.GetMouseButton(0))
         {
             lastFireTime = 0f;
         }
-       
-                
-      
+
+
+
         if (currWeapon == 1 && Input.GetMouseButtonDown(0))
         {
 
-        Console.WriteLine("Yes");
-        Console.WriteLine(currWeapon);
+            Console.WriteLine("Yes");
+            Console.WriteLine(currWeapon);
 
         }
-     
+
     }
 
 

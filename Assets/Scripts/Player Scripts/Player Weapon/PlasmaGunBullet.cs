@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlasmaGunBullet : Bullet
 {
-    [HideInInspector]
+   
     public Transform firePoint;
    
 

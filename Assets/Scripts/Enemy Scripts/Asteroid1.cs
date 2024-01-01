@@ -38,12 +38,12 @@ public class Asteroid1 : Enemy
     }
     void AsteroidSpeed()
     {
-        speed = 5;
+        speed = 1;
     }
     void AsteroidTrackingSpeed()
     {
        
-        trackingSpeed = 10f;
+        trackingSpeed = 5f;
     }
       
     void AsteroidTrackingTime()
@@ -53,7 +53,7 @@ public class Asteroid1 : Enemy
 
     void AsteroidHealth()
     {
-        health = 50;
+        health = 30;
     }
     void AsteroidRotationSpeed()
     {
