@@ -6,7 +6,7 @@ public class BackgroundScript : MonoBehaviour {
 
 public float scrollSpeed = 0.1f;
 
-    private float xScroll;
+private float xScroll;
 
 private MeshRenderer meshRenderer;
 void Awake() {

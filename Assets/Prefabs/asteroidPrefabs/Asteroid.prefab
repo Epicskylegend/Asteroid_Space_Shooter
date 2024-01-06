@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6063358608712145364}
   - component: {fileID: 6063358608712145366}
   - component: {fileID: -4647586227648584995}
+  - component: {fileID: -841123215269256755}
   - component: {fileID: -1951987958009598166}
   - component: {fileID: 8792756146884855117}
   m_Layer: 0
@@ -107,10 +108,12 @@ MonoBehaviour:
   health: 10
   rotationSpeed: 90
   asteroidPrefab: {fileID: 6063358608712145365}
+  cameraShake: {fileID: 8616149935032137025, guid: 8f119ad06388da3469f5ce8cd3ba5d08, type: 3}
   explosionPrefabs:
   - {fileID: -6230370810043751180, guid: 9d207b171dd0e0b42a576c30260d2300, type: 3}
   spawnPoint: {fileID: 0}
   rb: {fileID: 8792756146884855117}
+  asteroidPosition: {x: 0, y: 0}
 --- !u!114 &-4647586227648584995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +124,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ff84743d0712f145b38c3c6f76180a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-841123215269256755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6063358608712145365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4974c94d0993b499b247fd7d289d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &-1951987958009598166

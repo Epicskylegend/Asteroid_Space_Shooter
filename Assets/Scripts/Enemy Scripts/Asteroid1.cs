@@ -6,6 +6,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Asteroid1 : Enemy
 {
+    public CameraShake cameraShake;
+
     public List<Destruction> explosionPrefabs;
     public Transform spawnPoint;
     public Rigidbody2D rb;
@@ -18,6 +20,8 @@ public class Asteroid1 : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        cameraShake = GetComponent<CameraShake>();
+
         AsteroidDamage();
         AsteroidSpeed();
         AsteroidHealth();
@@ -66,8 +70,12 @@ public class Asteroid1 : Enemy
     {
         if (health <= 0)
         {
-            asteroidPosition = transform.position;
-            Destruction.explosionEffect(asteroidPosition, explosionPrefabs[0].explosionPrefab);
+            asteroidPosition = transform.position; // Get position
+            Destruction.explosionEffect(asteroidPosition, explosionPrefabs[0].explosionPrefab); // Create explosion effect
+            if (cameraShake != null)
+            {
+                cameraShake.Shake(500f, 1f);
+            }
             Destroy(this.gameObject);
         }
     }
@@ -112,8 +120,15 @@ public class Asteroid1 : Enemy
             PlasmaGunBullet plasmaBullet = collision.gameObject.GetComponent<PlasmaGunBullet>();
             health -= plasmaBullet.damage;
         }
-      
-        if(collision.gameObject.CompareTag("Boundary"))
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            asteroidPosition = transform.position; 
+            Destruction.explosionEffect(asteroidPosition, explosionPrefabs[0].explosionPrefab);
+            Destroy(this.gameObject);
+
+        }
+
+        if (collision.gameObject.CompareTag("Boundary"))
         {
             Destroy(this.gameObject);
         }
