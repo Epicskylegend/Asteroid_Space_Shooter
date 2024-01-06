@@ -7,6 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Asteroid1 : Enemy
 {
     public CameraShake cameraShake;
+    DisplayScore score = new DisplayScore();
 
     public List<Destruction> explosionPrefabs;
     public Transform spawnPoint;
@@ -21,6 +22,7 @@ public class Asteroid1 : Enemy
     void Start()
     {
         cameraShake = GetComponent<CameraShake>();
+        score = GameObject.FindGameObjectWithTag("Score").GetComponent<DisplayScore>();
 
         AsteroidDamage();
         AsteroidSpeed();
@@ -72,6 +74,8 @@ public class Asteroid1 : Enemy
         {
             asteroidPosition = transform.position; // Get position
             Destruction.explosionEffect(asteroidPosition, explosionPrefabs[0].explosionPrefab); // Create explosion effect
+            score.increaseScore();
+            Debug.Log(score);
             if (cameraShake != null)
             {
                 cameraShake.Shake(500f, 1f);
@@ -151,5 +155,8 @@ public class Asteroid1 : Enemy
         }
 
     }
-
+    private void givePoints()
+    {
+        
+    }
 }

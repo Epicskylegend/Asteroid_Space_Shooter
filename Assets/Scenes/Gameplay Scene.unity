@@ -1025,9 +1025,10 @@ GameObject:
   - component: {fileID: 2109135193}
   - component: {fileID: 2109135192}
   - component: {fileID: 2109135195}
+  - component: {fileID: 2109135196}
   m_Layer: 0
   m_Name: Game
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1110,3 +1111,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.1
+--- !u!114 &2109135196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109135190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c1e437d3ece4946b0e9a1a5921f72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  speed: 0
+  trackingSpeed: 0
+  trackingTime: 0
+  health: 0
+  rotationSpeed: 0
+  asteroidPrefab: {fileID: 0}
+  currentScore: 0
