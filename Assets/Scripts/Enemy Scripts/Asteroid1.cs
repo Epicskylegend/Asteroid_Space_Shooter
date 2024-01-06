@@ -6,11 +6,12 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Asteroid1 : Enemy
 {
-  
+    public List<Destruction> explosionPrefabs;
     public Transform spawnPoint;
     public Rigidbody2D rb;
-    
-   
+
+
+
 
 
 
@@ -65,7 +66,8 @@ public class Asteroid1 : Enemy
     {
         if (health <= 0)
         {
-            Destroy(this.gameObject);
+            Destruction.explosionEffect(transform, explosionPrefabs[0].explosionPrefab);
+            Destroy(this.gameObject, 0.1f);
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -132,6 +134,6 @@ public class Asteroid1 : Enemy
             rb.velocity = trackingSpeed * direction;
         }
 
-    }      
-    
+    }
+
 }

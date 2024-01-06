@@ -7,18 +7,20 @@ public class HitEffects : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     private bool isCollidingWithBullet = false;
-    // Start is called before the first frame update
+    private Timer colorTimer = new Timer(0.1f);
+   
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+        colorTimer.OnTimerDone += resetColor;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //resetColor();
-        Debug.Log("Original Color: " + originalColor);
+        colorTimer.Tick();
     }
 
     private void FixedUpdate()
@@ -36,6 +38,8 @@ public class HitEffects : MonoBehaviour
             spriteRenderer.color = Color.red;
             isCollidingWithBullet = true;
 
+            colorTimer.ResetTimer();
+            
         }
        
     }
@@ -52,5 +56,8 @@ public class HitEffects : MonoBehaviour
     private void resetColor()
     {
         spriteRenderer.color = originalColor;
+       
     }
+
+   
 }

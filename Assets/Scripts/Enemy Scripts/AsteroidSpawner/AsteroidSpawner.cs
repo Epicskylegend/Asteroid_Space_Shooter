@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AsteroidSpawner : Asteroid1
 {
-    //[SerializeField]
     public List<Enemy> asteroidPrefabs;
     public float minY;
     public float maxY;
