@@ -9,7 +9,7 @@ public class Asteroid1 : Enemy
     public List<Destruction> explosionPrefabs;
     public Transform spawnPoint;
     public Rigidbody2D rb;
-
+    public Vector2 asteroidPosition;
 
 
 
@@ -66,8 +66,9 @@ public class Asteroid1 : Enemy
     {
         if (health <= 0)
         {
-            Destruction.explosionEffect(transform, explosionPrefabs[0].explosionPrefab);
-            Destroy(this.gameObject, 0.1f);
+            asteroidPosition = transform.position;
+            Destruction.explosionEffect(asteroidPosition, explosionPrefabs[0].explosionPrefab);
+            Destroy(this.gameObject);
         }
     }
     private void OnCollisionEnter(Collision collision)

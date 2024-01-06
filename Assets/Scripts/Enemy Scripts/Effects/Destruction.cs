@@ -7,7 +7,7 @@ using UnityEngine;
 public class Destruction: baseDestruction
 {
     [SerializeField]
-    public Transform spawnPoint;
+    //public Transform spawnPoint;
   
 
     void Start()
@@ -20,9 +20,9 @@ public class Destruction: baseDestruction
 
     }
 
-    public static void explosionEffect(Transform spawnPoint, GameObject explosionPrefab)
+    public static void explosionEffect(Vector2 spawnPosition, GameObject explosionPrefab)
     {
-        GameObject explosion = Instantiate(explosionPrefab, spawnPoint);
+        GameObject explosion = Instantiate(explosionPrefab, spawnPosition, Quaternion.identity);
         Destroy(explosion, 1);
     }
 }
