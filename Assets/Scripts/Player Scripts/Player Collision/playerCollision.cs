@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitEffects : MonoBehaviour
+public class playerCollision : MonoBehaviour
 {
+
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
-    private bool isCollidingWithBullet = false;
-    private Timer colorTimer = new Timer(0.1f);
+    private bool isCollidingWithEnemy = false;
+    private Timer colorTimer = new Timer(0.2f);
    
     void Start()
     {
@@ -22,9 +23,11 @@ public class HitEffects : MonoBehaviour
         colorTimer.Tick();
     }
 
+ 
+
     private void FixedUpdate()
     {
-        if(!isCollidingWithBullet)
+        if (!isCollidingWithEnemy)
         {
             resetColor();
         }
@@ -32,22 +35,22 @@ public class HitEffects : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("PlasmaBullet"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             spriteRenderer.color = Color.red;
-            isCollidingWithBullet = true;
+            isCollidingWithEnemy = true;
 
             colorTimer.ResetTimer();
-            
+
         }
-       
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("PlasmaBullet"))
+        if (!collision.gameObject.CompareTag("Enemy"))
         {
-            isCollidingWithBullet = false;
+            isCollidingWithEnemy = false;
             resetColor();
         }
     }
@@ -55,8 +58,7 @@ public class HitEffects : MonoBehaviour
     private void resetColor()
     {
         spriteRenderer.color = originalColor;
-       
+
     }
 
-   
 }
