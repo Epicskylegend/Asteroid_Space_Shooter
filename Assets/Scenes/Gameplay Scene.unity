@@ -648,6 +648,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1220366557}
+  - component: {fileID: 1220366560}
+  - component: {fileID: 1220366561}
   - component: {fileID: 1220366556}
   - component: {fileID: 1220366559}
   - component: {fileID: 1220366558}
@@ -772,6 +774,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.875265, y: 7.459477}
   m_EdgeRadius: 0
+--- !u!114 &1220366560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220366555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de72bd715e97c14cb0dfd6198627770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1220366561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220366555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37048859c33b5b04db4243d009b05a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!1 &1416820654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,11 +1261,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c1e437d3ece4946b0e9a1a5921f72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  speed: 0
-  trackingSpeed: 0
-  trackingTime: 0
-  health: 0
-  rotationSpeed: 0
-  asteroidPrefab: {fileID: 0}
   currentScore: 0

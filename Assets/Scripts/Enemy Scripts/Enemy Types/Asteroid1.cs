@@ -7,8 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Asteroid1 : Enemy
 {
     public CameraShake cameraShake;
-    DisplayScore score = new DisplayScore();
-
+    private HUD score; 
     public List<Destruction> explosionPrefabs;
     public Transform spawnPoint;
     public Rigidbody2D rb;
@@ -22,7 +21,7 @@ public class Asteroid1 : Enemy
     void Start()
     {
         cameraShake = GetComponent<CameraShake>();
-        score = GameObject.FindGameObjectWithTag("Score").GetComponent<DisplayScore>();
+        score = GameObject.FindGameObjectWithTag("Score").GetComponent<HUD>();
 
         AsteroidDamage();
         AsteroidSpeed();
