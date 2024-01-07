@@ -20,7 +20,7 @@ public class BackgroundScript : MonoBehaviour {
     void Update() {
     Scroll();
     Debug.Log(scrollSpeed);
-    scrollSpeed += 0.001f * Time.deltaTime;
+    scrollSpeed += 0.0005f * Time.deltaTime;
     }
 
     void Scroll() {
