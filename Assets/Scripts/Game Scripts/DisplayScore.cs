@@ -16,15 +16,24 @@ public class DisplayScore : Enemy
     {
        
     }
-    private void OnGUI()
+    private void OnGUI() 
     {
-        GUI.Label(new Rect(0, 0, 1000, 1000), "Score: " + currentScore.ToString());
+        // Display Score
+        GUIStyle style = new GUIStyle(GUI.skin.label);
+        style.fontSize = 24; 
+
+        GUI.Label(new Rect(0, 0, 1000, 1000), "Score: " + currentScore.ToString(), style);
+
+        GUI.Label(new Rect(1200, 0, 1000, 1000), "Time: " + Mathf.Round(Time.time), style);
     }
+
+
 
     public void increaseScore()
     {
       
-        currentScore += 100;
+        currentScore += Mathf.Round(5 * Time.time);
+        Debug.Log(Time.time);
        
     }
 }
