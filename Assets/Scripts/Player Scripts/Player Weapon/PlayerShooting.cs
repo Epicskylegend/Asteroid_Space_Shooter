@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerShooting : PlasmaGunBullet
 {
-
+    PlasmaGunSounds plasmaGunSounds = new PlasmaGunSounds();
     public List<Bullet> bulletPrefabs;
     int currWeapon = 0;
     float fireRate = 0.2f;
@@ -26,6 +26,7 @@ public class PlayerShooting : PlasmaGunBullet
         if (Input.GetMouseButton(0) && lastFireTime >= fireRate)
         {
             PlasmaGunBullet.fireShot(firePoint, bulletPrefabs[currWeapon].bulletPrefab, bulletPrefabs[currWeapon].bulletSpeed);
+            //plasmaGunSounds.playSound();
             lastFireTime = 0f;
         }
         else if (!Input.GetMouseButton(0))
@@ -38,8 +39,6 @@ public class PlayerShooting : PlasmaGunBullet
         if (currWeapon == 1 && Input.GetMouseButtonDown(0))
         {
 
-            Console.WriteLine("Yes");
-            Console.WriteLine(currWeapon);
 
         }
 

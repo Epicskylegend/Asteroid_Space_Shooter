@@ -18,7 +18,7 @@ public class DisplayScore : Enemy
     }
     private void OnGUI() 
     {
-        // Display Score
+        
         GUIStyle style = new GUIStyle(GUI.skin.label);
         style.fontSize = 24; 
 
@@ -33,7 +33,6 @@ public class DisplayScore : Enemy
     {
       
         currentScore += Mathf.Round(5 * Time.time);
-        Debug.Log(Time.time);
        
     }
 }
