@@ -40,7 +40,7 @@ public class Asteroid1 : Enemy
 
     void AsteroidDamage()
     {
-        damage = 5;
+        damage = 10;
     }
     void AsteroidSpeed()
     {
@@ -74,7 +74,6 @@ public class Asteroid1 : Enemy
             asteroidPosition = transform.position; // Get position
             Destruction.explosionEffect(asteroidPosition, explosionPrefabs[0].explosionPrefab); // Create explosion effect
             score.increaseScore();
-            Debug.Log(Mathf.Round(5 * Time.time));
             if (cameraShake != null)
             {
                 cameraShake.Shake(500f, 1f);

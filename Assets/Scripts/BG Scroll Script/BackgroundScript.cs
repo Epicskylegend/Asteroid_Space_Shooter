@@ -19,7 +19,6 @@ public class BackgroundScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
     Scroll();
-    Debug.Log(scrollSpeed);
     scrollSpeed += 0.0005f * Time.deltaTime;
     }
 
@@ -28,11 +27,5 @@ public class BackgroundScript : MonoBehaviour {
          Vector2 offset = new Vector2(xScroll, 5f);
          meshRenderer.sharedMaterial.SetTextureOffset("_MainTex", offset);
     }
-
-    void scrollSpeedScaling()
-    {
-        
-    }
-        
     
 }

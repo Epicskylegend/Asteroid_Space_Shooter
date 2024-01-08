@@ -5,7 +5,7 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
     private Asteroid1 asteroid1;
-    public float health = 50;
+    public float health = 100;
 
 
     // Start is called before the first frame update

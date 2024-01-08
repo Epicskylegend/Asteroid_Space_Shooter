@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerShooting : PlasmaGunBullet
 {
-    PlasmaGunSounds plasmaGunSounds = new PlasmaGunSounds();
+    //PlasmaGunSounds plasmaGunSounds = new PlasmaGunSounds();
     public List<Bullet> bulletPrefabs;
     int currWeapon = 0;
     float fireRate = 0.2f;

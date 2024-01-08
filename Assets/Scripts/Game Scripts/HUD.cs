@@ -9,7 +9,7 @@ public class HUD : MonoBehaviour
     public float currentScore = 0;
     void Start()
     {
-        
+        stats = GameObject.FindGameObjectWithTag("Player").GetComponent<Stats>();
     }
 
     // Update is called once per frame
@@ -25,9 +25,9 @@ public class HUD : MonoBehaviour
 
         GUI.Label(new Rect(0, 0, 1000, 1000), "Score: " + currentScore.ToString(), style);
 
-        GUI.Label(new Rect(1200, 0, 1000, 1000), "Time: " + Mathf.Round(Time.time), style);
+        GUI.Label(new Rect(1250, 0, 1000, 1000), "Time: " + Mathf.Round(Time.time), style);
 
-        GUI.Label(new Rect(600, 0, 1000, 1000), "Health: " + stats.health.ToString(), style);
+        GUI.Label(new Rect(650, 0, 1000, 1000), "Health: " + stats.health.ToString(), style);
     }
 
 
