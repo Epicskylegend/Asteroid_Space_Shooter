@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -8,7 +9,10 @@ public class Asteroid1 : Enemy
 {
     public CameraShake cameraShake;
     private HUD score; 
+
     public List<Destruction> explosionPrefabs;
+    private bool hasExploded = false;
+
     public Transform spawnPoint;
     public Rigidbody2D rb;
     public Vector2 asteroidPosition;
@@ -36,6 +40,7 @@ public class Asteroid1 : Enemy
     {    
         playerTracking();
         isAlive();
+       
     }
 
     void AsteroidDamage()
@@ -44,7 +49,7 @@ public class Asteroid1 : Enemy
     }
     void AsteroidSpeed()
     {
-        speed = 1;
+        speed = 1.1f * Time.time;
     }
     void AsteroidTrackingSpeed()
     {
@@ -67,24 +72,26 @@ public class Asteroid1 : Enemy
     }
 
 
-    void isAlive()
+   void isAlive()
     {
         if (health <= 0)
         {
+            hasExploded = true;
+            Destroy(this.gameObject);
             asteroidPosition = transform.position; // Get position
             Destruction.explosionEffect(asteroidPosition, explosionPrefabs[0].explosionPrefab); // Create explosion effect
             score.increaseScore();
+            OnGUI();
+           
+
             if (cameraShake != null)
             {
                 cameraShake.Shake(500f, 1f);
             }
-            Destroy(this.gameObject);
+           
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        Destroy(gameObject);
-    }
+   
 
     public static void spawnAsteroid(Vector2 spawnPosition,  GameObject asteroidPrefab, float speed, float rotationSpeed)
     {
@@ -153,5 +160,17 @@ public class Asteroid1 : Enemy
         }
 
     }
-   
+    private void OnGUI()
+    {
+        
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        GUIStyle style = new GUIStyle(GUI.skin.label);
+        style.fontSize = 24;
+        
+
+        GUI.Label(new Rect(screenPos.x, Screen.height - screenPos.y, 1000, 1000),  "+" + Mathf.Round(5 * Time.time), style);
+       
+    }
+
+
 }
