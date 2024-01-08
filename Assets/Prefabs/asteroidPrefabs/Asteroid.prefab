@@ -109,6 +109,7 @@ MonoBehaviour:
   rotationSpeed: 90
   asteroidPrefab: {fileID: 6063358608712145365}
   cameraShake: {fileID: 8616149935032137025, guid: 8f119ad06388da3469f5ce8cd3ba5d08, type: 3}
+  increaseScorePrefab: {fileID: 3291986558600959953, guid: 2aa3788d96f86084b835122ec917dd31, type: 3}
   explosionPrefabs:
   - {fileID: -6230370810043751180, guid: 9d207b171dd0e0b42a576c30260d2300, type: 3}
   spawnPoint: {fileID: 0}

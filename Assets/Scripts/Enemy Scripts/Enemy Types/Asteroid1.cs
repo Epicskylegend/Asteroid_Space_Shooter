@@ -8,15 +8,16 @@ using static UnityEngine.GraphicsBuffer;
 public class Asteroid1 : Enemy
 {
     public CameraShake cameraShake;
-    private HUD score; 
+    private HUD score;
+    public GameObject increaseScorePrefab;
 
     public List<Destruction> explosionPrefabs;
-    private bool hasExploded = false;
+ 
 
     public Transform spawnPoint;
     public Rigidbody2D rb;
     public Vector2 asteroidPosition;
-
+    public float deathScore;
 
 
 
@@ -76,13 +77,19 @@ public class Asteroid1 : Enemy
     {
         if (health <= 0)
         {
-            hasExploded = true;
-            Destroy(this.gameObject);
+            increaseScoreIndicator();
+            deathScore = Mathf.Round(5 * Time.time);
+            
+            Debug.Log(deathScore);
+           
             asteroidPosition = transform.position; // Get position
             Destruction.explosionEffect(asteroidPosition, explosionPrefabs[0].explosionPrefab); // Create explosion effect
             score.increaseScore();
-            OnGUI();
            
+            Destroy(this.gameObject);
+
+
+
 
             if (cameraShake != null)
             {
@@ -160,17 +167,10 @@ public class Asteroid1 : Enemy
         }
 
     }
-    private void OnGUI()
+   void increaseScoreIndicator ()
     {
-        
-        Vector2 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        GUIStyle style = new GUIStyle(GUI.skin.label);
-        style.fontSize = 24;
-        
-
-        GUI.Label(new Rect(screenPos.x, Screen.height - screenPos.y, 1000, 1000),  "+" + Mathf.Round(5 * Time.time), style);
-       
+        GameObject increaseScoreObject = Instantiate(increaseScorePrefab, transform.position, Quaternion.identity);
     }
 
-
+    
 }
