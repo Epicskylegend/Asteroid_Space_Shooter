@@ -23,11 +23,11 @@ public class HUD : MonoBehaviour
         GUIStyle style = new GUIStyle(GUI.skin.label);
         style.fontSize = 24; 
 
-        GUI.Label(new Rect(0, 0, 1000, 1000), "Score: " + currentScore.ToString(), style);
+        GUI.Label(new Rect(0, 0, 1000, 1000), "<color=cyan>Score: </color> "  + currentScore.ToString(), style);
 
         GUI.Label(new Rect(1250, 0, 1000, 1000), "Time: " + Mathf.Round(Time.time), style);
 
-        GUI.Label(new Rect(650, 0, 1000, 1000), "Health: " + stats.health.ToString(), style);
+        GUI.Label(new Rect(650, 0, 1000, 1000), "<color=green>Health:</color> " + stats.health.ToString(), style);
     }
 
 
