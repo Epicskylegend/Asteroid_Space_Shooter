@@ -12,6 +12,8 @@ TagManager:
   - Bottom Boundary
   - Right Boundary
   - Score
+  - incrementScore
+  - HUD
   layers:
   - Default
   - TransparentFX
