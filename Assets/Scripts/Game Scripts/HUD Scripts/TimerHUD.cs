@@ -11,7 +11,6 @@ public class TimerHUD : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         timerText.SetText("Time: " + Mathf.Round(Time.time));
