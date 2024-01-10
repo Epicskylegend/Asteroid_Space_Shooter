@@ -961,6 +961,8 @@ MonoBehaviour:
   - {fileID: 6063358608712145366, guid: 051b4c0ab30067b4fbcceb0b5a01121d, type: 3}
   minY: -14
   maxY: 14
+  initialAsteroidSpawnInterval: 3
+  asteroidSpawnIntervalDecrease: 0.01
 --- !u!1 &1220366555
 GameObject:
   m_ObjectHideFlags: 0
