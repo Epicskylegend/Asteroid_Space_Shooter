@@ -1135,7 +1135,7 @@ GameObject:
   - component: {fileID: 1316244390}
   m_Layer: 0
   m_Name: Time
-  m_TagString: Score
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1475,7 +1475,7 @@ GameObject:
   - component: {fileID: 1933705769}
   m_Layer: 0
   m_Name: Health
-  m_TagString: Score
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

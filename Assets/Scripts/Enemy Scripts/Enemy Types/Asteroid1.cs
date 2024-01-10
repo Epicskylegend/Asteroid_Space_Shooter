@@ -171,7 +171,8 @@ public class Asteroid1 : Enemy
     }
    private IncreaseScore increaseScoreIndicator ()
     {
-        GameObject increaseScoreObject = Instantiate(increaseScorePrefab, transform.position, Quaternion.identity);
+        GameObject HUD = GameObject.FindGameObjectWithTag("HUD");
+        GameObject increaseScoreObject = Instantiate(increaseScorePrefab, transform.position, Quaternion.identity, HUD.transform);
         return increaseScoreObject.GetComponent<IncreaseScore>();
     }
 
