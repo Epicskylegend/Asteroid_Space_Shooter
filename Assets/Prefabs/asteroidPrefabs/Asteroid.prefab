@@ -115,6 +115,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   rb: {fileID: 8792756146884855117}
   asteroidPosition: {x: 0, y: 0}
+  deathScore: 0
 --- !u!114 &-4647586227648584995
 MonoBehaviour:
   m_ObjectHideFlags: 0

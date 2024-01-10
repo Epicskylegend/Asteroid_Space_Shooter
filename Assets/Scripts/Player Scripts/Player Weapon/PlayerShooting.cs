@@ -45,7 +45,7 @@ public class PlayerShooting : PlasmaGunBullet
     }
 
 
-    void cycleWeapon()
+    void cycleWeapon()  
     {
         if (Input.GetMouseButtonDown(2) && currWeapon == 0)
         {

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class IncreaseScore : MonoBehaviour
 {
-    
-    private Asteroid1 asteroid1;
+  
+    private ScoreHUD hud;
+    public float deathScore = 0;
+
 
     private void Start()
     {
-        asteroid1 = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Asteroid1>();
+    
 
     }
-
 
     private void OnGUI()
     {
@@ -22,7 +23,7 @@ public class IncreaseScore : MonoBehaviour
         style.fontSize = 24;
 
 
-        GUI.Label(new Rect(screenPos.x, Screen.height - screenPos.y, 1000, 1000), "+" + asteroid1.deathScore, style);
+        GUI.Label(new Rect(screenPos.x, Screen.height - screenPos.y, 1000, 1000), "+" + deathScore, style);
         Destroy(gameObject, 0.5f);
 
     }

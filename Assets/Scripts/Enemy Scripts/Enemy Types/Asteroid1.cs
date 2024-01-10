@@ -8,7 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Asteroid1 : Enemy
 {
     public CameraShake cameraShake;
-    private HUD score;
+    private ScoreHUD score;
     public GameObject increaseScorePrefab;
 
     public List<Destruction> explosionPrefabs;
@@ -26,7 +26,7 @@ public class Asteroid1 : Enemy
     void Start()
     {
         cameraShake = GetComponent<CameraShake>();
-        score = GameObject.FindGameObjectWithTag("Score").GetComponent<HUD>();
+        score = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreHUD>();
 
         AsteroidDamage();
         AsteroidSpeed();
@@ -41,7 +41,9 @@ public class Asteroid1 : Enemy
     {    
         playerTracking();
         isAlive();
-       
+        speed += 0.0005f * Time.deltaTime;
+        trackingSpeed += 0.0005f * Time.deltaTime;
+
     }
 
     void AsteroidDamage()
@@ -77,14 +79,14 @@ public class Asteroid1 : Enemy
     {
         if (health <= 0)
         {
-            increaseScoreIndicator();
-            deathScore = Mathf.Round(5 * Time.time);
-            
-            Debug.Log(deathScore);
            
+            IncreaseScore scoreIndicator = increaseScoreIndicator();   
+            deathScore = Mathf.Round(5 * Time.time);
+            scoreIndicator.deathScore = deathScore;
+
             asteroidPosition = transform.position; // Get position
             Destruction.explosionEffect(asteroidPosition, explosionPrefabs[0].explosionPrefab); // Create explosion effect
-            score.increaseScore();
+            score.increaseScore(deathScore);
            
             Destroy(this.gameObject);
 
@@ -167,9 +169,10 @@ public class Asteroid1 : Enemy
         }
 
     }
-   void increaseScoreIndicator ()
+   private IncreaseScore increaseScoreIndicator ()
     {
         GameObject increaseScoreObject = Instantiate(increaseScorePrefab, transform.position, Quaternion.identity);
+        return increaseScoreObject.GetComponent<IncreaseScore>();
     }
 
     
