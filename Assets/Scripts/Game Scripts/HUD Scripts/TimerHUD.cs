@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TimerHUD : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public TMP_Text timerText;
     void Start()
     {
         
@@ -13,6 +14,6 @@ public class TimerHUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timerText.SetText("Time: " + Mathf.Round(Time.time));
     }
 }
