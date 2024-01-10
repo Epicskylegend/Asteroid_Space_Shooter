@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1220366555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37048859c33b5b04db4243d009b05a00, type: 3}
+  m_Script: {fileID: 11500000, guid: cd4e0ad2e76209b468da13fe5a48b8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
@@ -1458,6 +1458,7 @@ GameObject:
   - component: {fileID: 1933705765}
   - component: {fileID: 1933705768}
   - component: {fileID: 1933705767}
+  - component: {fileID: 1933705769}
   m_Layer: 0
   m_Name: Health
   m_TagString: Score
@@ -1582,6 +1583,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933705764}
   m_CullTransparentMesh: 1
+--- !u!114 &1933705769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933705764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a59484314791c844862fc063871db5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 1933705767}
 --- !u!1 &2075341233
 GameObject:
   m_ObjectHideFlags: 0

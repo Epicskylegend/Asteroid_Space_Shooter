@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HealthHud : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private PlayerHealth player;
 
-    // Update is called once per frame
+    public TMP_Text healthText;
+
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerHealth>();
+
+    }
     void Update()
     {
-        
+        healthText.SetText("Health: " + player.health);
     }
 }

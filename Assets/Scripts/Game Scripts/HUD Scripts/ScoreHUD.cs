@@ -11,14 +11,6 @@ public class ScoreHUD : MonoBehaviour
     
     public TMP_Text scoreText;
   
-
-    void Start()
-    {
-      
-      
-    }
-
-    // Update is called once per frame
     void Update()
     {
         scoreText.SetText("Score: " + currentScore);
