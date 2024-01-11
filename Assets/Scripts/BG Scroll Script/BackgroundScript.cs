@@ -19,7 +19,7 @@ public class BackgroundScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
     Scroll();
-    scrollSpeed += 0.0005f * Time.deltaTime;
+    scrollSpeed += 0.0004f * Time.deltaTime;
     }
 
     void Scroll() {
