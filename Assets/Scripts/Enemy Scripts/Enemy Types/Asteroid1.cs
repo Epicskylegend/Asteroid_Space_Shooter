@@ -30,9 +30,7 @@ public class Asteroid1 : Enemy
 
         AsteroidDamage();
         AsteroidHealth();
-
         AsteroidRotationSpeed();
-       
         AsteroidTrackingTime();
         AsteroidSpeed();
         AsteroidTrackingSpeed();

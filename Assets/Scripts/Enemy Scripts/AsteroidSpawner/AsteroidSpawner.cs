@@ -9,7 +9,7 @@ public class AsteroidSpawner : Asteroid1
     public float maxY;
 
     public float initialAsteroidSpawnInterval = 3.0f; // Initial spawn interval
-    public float asteroidSpawnIntervalDecrease = 0.001f; // Rate at which spawn interval decreases
+    public float asteroidSpawnIntervalDecrease = 0.002f; // Rate at which spawn interval decreases
     private float lastAsteroidSpawnTime;
 
     void Start()
