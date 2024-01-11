@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    float moveLeftSpeed = 5f;
-    float moveRightSpeed = 4.5f;
-    float moveUpSpeed = 4.5f;
-    float moveDownSpeed = 5f;
+    float moveLeftSpeed = 6f;
+    float moveRightSpeed = 6;
+    float moveUpSpeed = 6;
+    float moveDownSpeed = 6f;
 
     void Start()
     {
