@@ -54,12 +54,12 @@ public class Asteroid1 : Enemy
     }
     void AsteroidSpeed()
     {
-        speed -= 0.05f * Time.time;
+        speed -= 0.08f * Time.time;
     }
     void AsteroidTrackingSpeed()
     {
        
-        trackingSpeed += 0.05f * Time.time;
+        trackingSpeed += 0.08f * Time.time;
     }
       
     void AsteroidTrackingTime()
@@ -69,7 +69,7 @@ public class Asteroid1 : Enemy
 
     void AsteroidHealth()
     {
-        health = Mathf.Round(0.2f * Time.time);
+        health = Mathf.Round(0.1f * Time.time);
     }
     void AsteroidRotationSpeed()
     {
