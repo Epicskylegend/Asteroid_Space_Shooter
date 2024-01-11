@@ -962,7 +962,7 @@ MonoBehaviour:
   minY: -14
   maxY: 14
   initialAsteroidSpawnInterval: 3
-  asteroidSpawnIntervalDecrease: 0.01
+  asteroidSpawnIntervalDecrease: 0.03
 --- !u!1 &1220366555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +1045,7 @@ Transform:
   m_GameObject: {fileID: 1220366555}
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: -0, y: 0.86, z: 0}
-  m_LocalScale: {x: 0.40000004, y: 0.40000004, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1416820656}
