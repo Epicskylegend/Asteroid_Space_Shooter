@@ -13,6 +13,6 @@ public class TimerHUD : MonoBehaviour
 
     void Update()
     {
-        timerText.SetText("Time: " + Mathf.Round(Time.time));
+        timerText.SetText("Time: " + Mathf.Round(Time.time) );
     }
 }

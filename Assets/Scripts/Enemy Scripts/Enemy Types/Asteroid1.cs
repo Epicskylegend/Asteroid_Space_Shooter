@@ -29,11 +29,13 @@ public class Asteroid1 : Enemy
         score = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreHUD>();
 
         AsteroidDamage();
-        AsteroidSpeed();
         AsteroidHealth();
+
         AsteroidRotationSpeed();
-        AsteroidTrackingSpeed();
+       
         AsteroidTrackingTime();
+        AsteroidSpeed();
+        AsteroidTrackingSpeed();
     }
 
     // Update is called once per frame
@@ -41,8 +43,8 @@ public class Asteroid1 : Enemy
     {    
         playerTracking();
         isAlive();
-        speed += 0.0005f * Time.deltaTime;
-        trackingSpeed += 0.0005f * Time.deltaTime;
+       
+       
 
     }
 
@@ -52,12 +54,12 @@ public class Asteroid1 : Enemy
     }
     void AsteroidSpeed()
     {
-        speed = 1.1f * Time.time;
+        speed -= 0.05f * Time.time;
     }
     void AsteroidTrackingSpeed()
     {
        
-        trackingSpeed = 5f;
+        trackingSpeed += 0.05f * Time.time;
     }
       
     void AsteroidTrackingTime()
@@ -67,7 +69,7 @@ public class Asteroid1 : Enemy
 
     void AsteroidHealth()
     {
-        health = 30;
+        health = Mathf.Round(0.2f * Time.time);
     }
     void AsteroidRotationSpeed()
     {
