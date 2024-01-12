@@ -39,7 +39,7 @@ public class Asteroid1 : Enemy
     // Update is called once per frame
     void Update()
     {    
-        playerTracking();
+        //playerTracking();
         isAlive();
        
        
@@ -150,31 +150,37 @@ public class Asteroid1 : Enemy
         {
             Destroy(this.gameObject);
         }
+        if(!collision.gameObject.CompareTag("asteroidFollowLimit"))
+        {
+            playerTracking();
+        }
        
     }
-  
-    
-    void playerTracking ()
+
+
+    void playerTracking()
     {
         trackingTime += Time.deltaTime;
-        if (trackingTime <= 3)
-        {
-            GameObject target = GameObject.FindGameObjectWithTag("Player");
-            
-            Vector2 distance = target.transform.position - transform.position;
-           
-            Vector2 direction = distance.normalized;
+        
+        
+        GameObject target = GameObject.FindGameObjectWithTag("Player");
 
-            rb.velocity = trackingSpeed * direction;
-        }
+        Vector2 distance = target.transform.position - transform.position;
+
+        Vector2 direction = distance.normalized;
+
+        rb.velocity = trackingSpeed * direction;
+        
 
     }
-   private IncreaseScore increaseScoreIndicator ()
+    private IncreaseScore increaseScoreIndicator ()
     {
         GameObject HUD = GameObject.FindGameObjectWithTag("HUD");
         GameObject increaseScoreObject = Instantiate(increaseScorePrefab, transform.position, Quaternion.identity, HUD.transform);
         return increaseScoreObject.GetComponent<IncreaseScore>();
     }
+
+   
 
     
 }
